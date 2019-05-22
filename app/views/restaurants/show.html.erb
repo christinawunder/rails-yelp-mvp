@@ -1,0 +1,17 @@
+<h1><%= @restaurant.name %></h1>
+<p>The <%= @restaurant.name %> is located on
+  <%= @restaurant.address %> and serves
+  <%= @restaurant.category %> food.</p>
+<%= link_to 'Go back to all restaurants', restaurants_path %>
+<br>
+<%= link_to 'Submit a rating', new_restaurant_review_path(@restaurant) %>
+
+<br>
+<h2>See here all ratings for <%= @restaurant.name %></h2>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+  <li><%= review.rating %> stars -
+    <%= review.content %>
+  </li>
+  <% end %>
+</ul>
